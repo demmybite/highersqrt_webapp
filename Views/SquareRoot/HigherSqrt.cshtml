@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Square Root App";
+}
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="text-center">
+    <p>Find Numbers With Higher Square Roots Here</p>
+</div>
+<div class="text-center">
+    <form asp-controller="SquareRoot" asp-action="HigherSqrt" method="POST">
+    <input type="number" placeholder="Enter First Number" name="firstnumber"/>
+    <input type="number" placeholder="Enter Second Number" name="secondnumber"/>
+    <button type="submit">submit</button>
+    </form>
+</div>
+@{  
+    if (ViewBag.firstentry > ViewBag.secondentry && (ViewBag.firstentry > 0 && ViewBag.secondentry > 0 )) 
+    {
+        <div class="text-center">
+            <p>The number @ViewBag.firstentry with Square root @ViewBag.firstentry_ has a higher square root than the number @ViewBag.secondentry with square root @ViewBag.secondentry_</p>
+        </div>
+    }
+    else if (ViewBag.firstentry < ViewBag.secondentry && (ViewBag.firstentry > 0 && ViewBag.secondentry > 0 ))
+    {
+        <div class="text-center">
+            <p>The number @ViewBag.secondentry with Square root @ViewBag.secondentry_ has a higher square root than the number @ViewBag.firstentry with square root @ViewBag.firstentry_</p>
+        </div>
+    }
+    else if (ViewBag.firstentry < 0 || ViewBag.secondentry < 0)
+    {
+        <div class="text-center">
+            <p>Error: number must be not be less than zero(0)</p>
+        </div>
+    }
+    else if (ViewBag.firstentry == ViewBag.secondentry)
+    {
+        <div class="text-center">
+            <p>Enter another number: confirm your entries are not the same</p>
+        </div>
+    }
+}
+
+<div>
+
+</div>
